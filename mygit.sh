@@ -43,7 +43,6 @@ do
                 *)
                     echo "Invalid response, command ending."
                     exit 1
-            ;;
 
         2)
             echo "What is the URL of the respository you want to clone?"
@@ -54,7 +53,8 @@ do
             ;;
 
         3)
-            while [[ "$response" != "all" && "$response" != "done" ]]; do
+            while [[ "$response" != "all" && "$response" != "done" ]]
+            do
                 git status
                 echo "Modified files are listed above. What file do you want to add? 
                 Or enter 'all' to add all files. Or enter 'done' when finished."
@@ -80,7 +80,6 @@ do
             ;;
         *)
             echo "That was an invalid option, please try again."
-            ;;
 done
 
 echo "Thanks for using mygit!"
