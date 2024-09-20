@@ -43,6 +43,7 @@ do
                 *)
                     echo "Invalid response, command ending."
                     exit 1
+                    ;;
 
         2)
             echo "What is the URL of the respository you want to clone?"
