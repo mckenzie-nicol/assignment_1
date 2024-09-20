@@ -30,11 +30,14 @@ do
         1)
             echo "Do you want to initialize the current working directory as a Repository? (Y/N)"
             read response
+
+            response="${response,,}"
+
             case "$response" in
-                Y)
+                y)
                     ./mygit-init.sh
                     ;;    
-                N)
+                n)
                     echo "Enter the name of the directory you wish to initialize:"
                     read response
                     ./mygit-init.sh $response
