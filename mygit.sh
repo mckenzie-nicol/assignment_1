@@ -61,11 +61,9 @@ do
         3)
             while [[ "$response" != "all" && "$response" != "done" ]]
             do
-                echo "Changes not staged for commit:
-                "
-                git status | grep -P '^\t'
-                echo "
-Modified files are listed above. What file do you want to add? 
+
+                git status | grep -Pv "  \(use"
+                echo "What file do you want to add? 
 Or enter 'all' to add all files. Or enter 'done' when finished.
 "
                 read response

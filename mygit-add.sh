@@ -14,10 +14,13 @@ case "$option" in
                 ;;
         *)      
                 valid=$(git status | grep "$option" -c)
-                if [[ $valid -gt 0 ]]; then
+                n=${#option}
+                if [[ $n -gt 3 && $valid -gt 0 ]]; then
                         git add $option
                 else
-                        echo "Unable to add file, please try again."
+                        echo "Unable to add file: $option 
+
+Please try again."
                 fi
                 ;;
 esac
