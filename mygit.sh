@@ -61,6 +61,7 @@ do
                 read response
                 if [["$response" != "done"]]; then
                     ./mygit-add.sh 
+                fi
             done
             ;;
 
