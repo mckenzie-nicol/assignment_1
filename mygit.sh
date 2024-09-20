@@ -6,10 +6,11 @@ Welcome to mygit!
 "
 
 number=0
-response=""
+
 
 while [[ $number -ne 9 ]]
 do
+
     echo "
     Please select from the menu below on what you would like to do?
     1. Initialize Repository
@@ -59,22 +60,30 @@ do
             ;;
 
         3)
-            while [[ "$response" != "all" && "$response" != "done" ]]
+            while [[ "$file" != "all" && "$file" != "done" ]]
             do
 
                 git status | grep -Pv "  \(use"
                 echo "What file do you want to add? 
 Or enter 'all' to add all files. Or enter 'done' when finished.
 "
-                read response
-                if [[ "$response" != "done" ]]; then
-                    ./mygit-add.sh $response
+                read file
+                if [[ "$file" != "done" ]]; then
+                    ./mygit-add.sh $file
                 fi
             done
             ;;
 
         4)
-            
+            message=""
+            valid=$(git status | grep -P "Changes not staged for commit:" -c)
+            if [[ $valid -eq 0 ]]; then
+                echo "Please enter your commit message:"
+                read message
+                ./mygit-commit $message
+            else 
+                echo "Error : All changes must be staged prior to commit. ***Visit option 3***"
+            fi
             ;;
 
         5)
