@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo "
-Welcome to mygit! \
----------------------------------------------------------------\
+Welcome to mygit!
+---------------------------------------------------------------
 "
 
 number=0
+response=""
 
-while [$number -ne 9] 
-
+while [[ $number -ne 9 ]]
 do
     echo "
     Please select from the menu below on what you would like to do?
@@ -25,7 +25,6 @@ do
     "
     
     read number
-
 
     case "$number" in
         1)
@@ -44,9 +43,11 @@ do
                     echo "Invalid response, command ending."
                     exit 1
                     ;;
+            esac
+            ;;
 
         2)
-            echo "What is the URL of the respository you want to clone?"
+            echo "What is the URL of the repository you want to clone?"
             read url
             echo "What is the name of the directory to clone to?"
             read destination
@@ -60,7 +61,7 @@ do
                 echo "Modified files are listed above. What file do you want to add? 
                 Or enter 'all' to add all files. Or enter 'done' when finished."
                 read response
-                if [["$response" != "done"]]; then
+                if [[ "$response" != "done" ]]; then
                     ./mygit-add.sh 
                 fi
             done
@@ -69,18 +70,23 @@ do
         4)
             
             ;;
+
         5)
             
             ;;
 
         6)
-            
+
             ;;
+
         7)
             continue
             ;;
+
         *)
             echo "That was an invalid option, please try again."
+            ;;
+    esac
 done
 
 echo "Thanks for using mygit!"
