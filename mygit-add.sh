@@ -10,7 +10,14 @@ option=$1
 case "$option" in
         all)
                 git add .
+                echo "All files added to commit."
                 ;;
         *)      
-                git add $option
+                valid=$(git status | grep "$option" -c)
+                if [[ $valid -gt 0 ]]; then
+                        git add $option
+                else
+                        echo "Unable to add file, please try again."
+                fi
                 ;;
+esac

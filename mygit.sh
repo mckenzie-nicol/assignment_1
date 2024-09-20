@@ -14,10 +14,11 @@ do
     Please select from the menu below on what you would like to do?
     1. Initialize Repository
     2. Clone Repository
-    3. Commit Changes
-    4. Push Changes
-    5. Pull from Remote Repository
-    6. Modify Repository Contents (File Operations)
+    3. Add changes
+    4. Commit Changes
+    5. Push Changes
+    6. Pull from Remote Repository
+    7. Modify Repository Contents (File Operations)
 
     9. Exit Program
 
@@ -60,12 +61,16 @@ do
         3)
             while [[ "$response" != "all" && "$response" != "done" ]]
             do
-                git status
-                echo "Modified files are listed above. What file do you want to add? 
-                Or enter 'all' to add all files. Or enter 'done' when finished."
+                echo "Changes not staged for commit:
+                "
+                git status | grep -P '^\t'
+                echo "
+Modified files are listed above. What file do you want to add? 
+Or enter 'all' to add all files. Or enter 'done' when finished.
+"
                 read response
                 if [[ "$response" != "done" ]]; then
-                    ./mygit-add.sh 
+                    ./mygit-add.sh $response
                 fi
             done
             ;;
@@ -79,6 +84,10 @@ do
             ;;
 
         6)
+
+            ;;
+        
+        7)
 
             ;;
 
