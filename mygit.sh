@@ -32,12 +32,12 @@ do
             read response
             case "$response" in
                 Y)
-                    ./mygit-init
+                    ./mygit-init.sh
                     ;;    
                 N)
                     echo "Enter the name of the directory you wish to initialize:"
                     read response
-                    ./mygit-init $response
+                    ./mygit-init.sh $response
                     ;;
                 *)
                     echo "Invalid response, command ending."
@@ -51,7 +51,7 @@ do
             read url
             echo "What is the name of the directory to clone to?"
             read destination
-            ./mygit-clone $url $destination
+            ./mygit-clone.sh $url $destination
             ;;
 
         3)
@@ -79,7 +79,7 @@ do
 
             ;;
 
-        7)
+        9)
             continue
             ;;
 
