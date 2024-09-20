@@ -76,14 +76,11 @@ Or enter 'all' to add all files. Or enter 'done' when finished.
 
         4)
             message=""
-            valid=$(git status | grep -P "Changes not staged for commit:" -c)
-            if [[ $valid -eq 0 ]]; then
-                echo "Please enter your commit message:"
-                read message
-                ./mygit-commit $message
-            else 
-                echo "Error : All changes must be staged prior to commit. ***Visit option 3***"
-            fi
+            git status | grep -Pv "  \(use"
+            
+            echo "Please enter your commit message:"
+            read message
+            ./mygit-commit $message
             ;;
 
         5)
